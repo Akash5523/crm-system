@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}CRM Landing Page{% endblock %}
+{% block content %}
+<header class="p-5 text-center bg-primary text-white">
+  <h1>Welcome to Your CRM System</h1>
+  <p class="lead">Manage leads, sales, tasks, and customer support—all in one platform.</p>
+  <a href="/dashboard" class="btn btn-light btn-lg mt-3">Go to Dashboard</a>
+</header>
+
+<section id="features" class="container py-5">
+  <h2 class="mb-4">Features</h2>
+  <div class="row text-center">
+    <div class="col-md-4 mb-3">
+      <h5>Lead Management</h5>
+      <p>Track, manage and convert leads efficiently.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5>Task Management</h5>
+      <p>Assign and organize tasks for your team.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5>Email Campaigns</h5>
+      <p>Create and send automated marketing emails.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5>Sales Tracking</h5>
+      <p>Monitor your sales pipeline and performance.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5>Customer Support</h5>
+      <p>Handle customer issues and tickets effectively.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5>Interactive Dashboard</h5>
+      <p>Visualize key data points in real time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="bg-light py-5">
+  <div class="container">
+    <h2>About</h2>
+    <p>This CRM is built using Flask and SQLAlchemy to provide a scalable, efficient, and easy-to-use solution for managing business relationships and processes.</p>
+  </div>
+</section>
+
+<section id="contact" class="container py-5">
+  <h2>Contact</h2>
+  <p>Need help or have questions? Reach out at <a href="mailto:support@mycrm.com">support@mycrm.com</a>.</p>
+</section>
+
+<footer class="bg-dark text-white text-center p-3">
+  &copy; 2025 My CRM. All rights reserved.
+</footer>
+{% endblock %}
