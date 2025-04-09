@@ -1,29 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Email Campaigns | CRM</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">CRM</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/leads">Leads</a></li>
-        <li class="nav-item"><a class="nav-link" href="/sales">Sales</a></li>
-        <li class="nav-item"><a class="nav-link" href="/tasks">Tasks</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/email-campaigns">Email Campaigns</a></li>
-        <li class="nav-item"><a class="nav-link" href="/support">Support</a></li>
-      </ul>
+{% extends 'base.html' %}
+
+{% block title %}Email Campaigns - My CRM{% endblock %}
+
+{% block content %}
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Email Campaigns</h4>
+    </div>
+    <div class="card-body">
+      <p class="text-muted">Manage your marketing and sales email campaigns. Track open rates, clicks, and performance metrics.</p>
+
+      <!-- Dummy Campaigns Table -->
+      <table class="table table-striped table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>Campaign Name</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Recipients</th>
+            <th>Open Rate</th>
+            <th>Click Rate</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spring Promo</td>
+            <td>Get 25% Off This Season</td>
+            <td><span class="badge bg-success">Sent</span></td>
+            <td>1,250</td>
+            <td>48%</td>
+            <td>15%</td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary">View</button>
+              <button class="btn btn-sm btn-secondary">Duplicate</button>
+            </td>
+          </tr>
+          <tr>
+            <td>April Leads Follow-up</td>
+            <td>Still Interested? Let's Talk</td>
+            <td><span class="badge bg-warning text-dark">Scheduled</span></td>
+            <td>340</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary">Edit</button>
+              <button class="btn btn-sm btn-danger">Cancel</button>
+            </td>
+          </tr>
+          <tr>
+            <td>New Features Launch</td>
+            <td>Discover What's New!</td>
+            <td><span class="badge bg-danger">Draft</span></td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>
+              <button class="btn btn-sm btn-success">Send</button>
+              <button class="btn btn-sm btn-outline-secondary">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <a href="#" class="btn btn-primary mt-3">Create New Campaign</a>
     </div>
   </div>
-</nav>
-
-<div class="container mt-4">
-    <h1 class="mb-4">Email Campaigns</h1>
-    <p>Create and manage bulk email campaigns from here.</p>
-</div>
-</body>
-</html>
+{% endblock %}

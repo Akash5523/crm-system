@@ -45,7 +45,8 @@ def create_app(config_name="production"):
     app.register_blueprint(tasks_bp, url_prefix="/api/tasks")
     app.register_blueprint(email_campaigns_bp, url_prefix="/api/email")
     app.register_blueprint(support_bp, url_prefix="/api/support")
-    app.register_blueprint(dashboard_bp, url_prefix="/api/dashboard")
+    app.register_blueprint(dashboard_bp)
+    # app.register_blueprint(dashboard_bp, url_prefix="/api/dashboard")
 
     # Logging configuration
     if not app.debug:
@@ -74,4 +75,4 @@ def create_app(config_name="production"):
 
 if __name__ == "__main__":
     application = create_app("development")
-    application.run(host="0.0.0.0", port=5000)
+    application.run(host="0.0.0.0", port=5000, debug=True)

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Edit Task{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white shadow rounded-xl mt-10">
+    <h2 class="text-2xl font-bold mb-6">Edit Task</h2>
+    <form method="POST" action="{{ url_for('tasks.edit_task', task_id=task.id) }}" class="space-y-4">
+        <div>
+            <label for="lead_id" class="block font-medium">Lead</label>
+            <select name="lead_id" id="lead_id" required class="w-full mt-1 p-2 border rounded">
+                {% for lead in leads %}
+                    <option value="{{ lead.id }}" {% if lead.id == task.lead_id %}selected{% endif %}>{{ lead.company_name }} - {{ lead.contact_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="title" class="block font-medium">Title</label>
+            <input type="text" name="title" id="title" value="{{ task.title }}" required class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="due_date" class="block font-medium">Due Date</label>
+            <input type="date" name="due_date" id="due_date" value="{{ task.due_date }}" class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="assigned_to" class="block font-medium">Assigned To</label>
+            <input type="text" name="assigned_to" id="assigned_to" value="{{ task.assigned_to }}" class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="status" class="block font-medium">Status</label>
+            <select name="status" id="status" class="w-full mt-1 p-2 border rounded">
+                <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pending</option>
+                <option value="In Progress" {% if task.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completed</option>
+            </select>
+        </div>
+
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update Task</button>
+    </form>
+</div>
+{% endblock %}

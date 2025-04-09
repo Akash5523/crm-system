@@ -1,35 +1,30 @@
-from flask import Blueprint, jsonify, render_template
-from models import Contact, Lead, Ticket, Task
+from flask import Blueprint, jsonify, render_template, session
+from models import Contact, Lead, SupportTicket, Task, Sale
 from app import db
+from routes.auth import login_required
 
-dashboard_bp = Blueprint("dashboard_bp", __name__)
+dashboard_bp = Blueprint("dashboard_bp", __name__, url_prefix="/dashboard")
 
-# API endpoint for dashboard (if needed)
 @dashboard_bp.route("/api", methods=["GET"])
-def get_dashboard():
-    total_contacts = Contact.query.count()
-    total_leads = Lead.query.count()
-    open_tickets = Ticket.query.filter_by(status="open").count()
-    pending_tasks = Task.query.filter_by(status="pending").count()
-
+@login_required
+def get_dashboard_data():
     stats = {
-        "total_contacts": total_contacts,
-        "total_leads": total_leads,
-        "open_tickets": open_tickets,
-        "pending_tasks": pending_tasks
+        "total_contacts": Contact.query.count(),
+        "total_leads": Lead.query.count(),
+        "open_support_tickets": SupportTicket.query.filter_by(status="open").count(),
+        "pending_tasks": Task.query.filter_by(status="pending").count(),
+        "total_sales": Sale.query.count(),
     }
     return jsonify(stats), 200
 
-# HTML dashboard page (for form-based login)
 @dashboard_bp.route("/", methods=["GET"])
+@login_required
 def dashboard_home():
-    total_contacts = Contact.query.count()
-    total_leads = Lead.query.count()
-    open_tickets = Ticket.query.filter_by(status="open").count()
-    pending_tasks = Task.query.filter_by(status="pending").count()
-
-    return render_template("dashboard.html",
-                           total_contacts=total_contacts,
-                           total_leads=total_leads,
-                           open_tickets=open_tickets,
-                           pending_tasks=pending_tasks)
+    stats = {
+        "total_contacts": Contact.query.count(),
+        "total_leads": Lead.query.count(),
+        "open_support_tickets": SupportTicket.query.filter_by(status="open").count(),
+        "pending_tasks": Task.query.filter_by(status="pending").count(),
+        "total_sales": Sale.query.count(),
+    }
+    return render_template("dashboard.html", username=session.get("username"), **stats)

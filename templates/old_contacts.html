@@ -1,36 +1,32 @@
 {% extends 'base.html' %}
 
-{% block title %}Sales - My CRM{% endblock %}
+{% block title %}Contacts - My CRM{% endblock %}
 
 {% block content %}
   <div class="card shadow-sm">
     <div class="card-header bg-primary text-white">
-      <h4 class="mb-0">Sales Dashboard</h4>
+      <h4 class="mb-0">Contacts</h4>
     </div>
     <div class="card-body">
-      <p class="text-muted">Monitor and manage your sales pipeline. View current deals and performance metrics.</p>
+      <p class="text-muted">Here is a list of your contacts. You can view, add, or manage your contacts below.</p>
 
-      <!-- Dummy Sales Table -->
+      <!-- Dummy Contact Table -->
       <table class="table table-bordered table-hover">
         <thead class="table-light">
           <tr>
-            <th>Deal Name</th>
-            <th>Client</th>
-            <th>Value</th>
-            <th>Status</th>
-            <th>Closing Date</th>
-            <th>Sales Rep</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Website Revamp</td>
-            <td>Pixel Corp</td>
-            <td>$12,000</td>
-            <td>Negotiation</td>
-            <td>2025-04-20</td>
-            <td>Emma Watson</td>
+            <td>Alice Johnson</td>
+            <td>alice@example.com</td>
+            <td>+1-202-555-0147</td>
+            <td>Acme Corp</td>
             <td>
               <button class="btn btn-sm btn-primary">View</button>
               <button class="btn btn-sm btn-warning">Edit</button>
@@ -38,12 +34,10 @@
             </td>
           </tr>
           <tr>
-            <td>Mobile App Development</td>
-            <td>SwiftSoft</td>
-            <td>$25,000</td>
-            <td>Proposal Sent</td>
-            <td>2025-05-05</td>
-            <td>Mike Ross</td>
+            <td>Bob Smith</td>
+            <td>bob.smith@example.com</td>
+            <td>+1-202-555-0198</td>
+            <td>Beta LLC</td>
             <td>
               <button class="btn btn-sm btn-primary">View</button>
               <button class="btn btn-sm btn-warning">Edit</button>
@@ -51,12 +45,10 @@
             </td>
           </tr>
           <tr>
-            <td>CRM Customization</td>
-            <td>Logic Systems</td>
-            <td>$18,500</td>
-            <td>Closed Won</td>
-            <td>2025-03-31</td>
-            <td>Jane Smith</td>
+            <td>Clara Stone</td>
+            <td>clara.stone@example.com</td>
+            <td>+1-202-555-0177</td>
+            <td>Gamma Inc.</td>
             <td>
               <button class="btn btn-sm btn-primary">View</button>
               <button class="btn btn-sm btn-warning">Edit</button>
@@ -66,7 +58,7 @@
         </tbody>
       </table>
 
-      <a href="#" class="btn btn-primary">Add New Deal</a>
+      <a href="#" class="btn btn-success">Add New Contact</a>
     </div>
   </div>
 {% endblock %}

@@ -3,11 +3,22 @@ from models import User
 from app import db
 import jwt
 import datetime
+from functools import wraps
 
 auth_bp = Blueprint("auth_bp", __name__, template_folder="../templates/auth")
 
+# Decorator to protect routes
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get("user_id"):
+            flash("You must be logged in to access this page.", "warning")
+            return redirect(url_for("auth_bp.login_form"))
+        return f(*args, **kwargs)
+    return decorated_function
+
 # API-based registration
-@auth_bp.route("/register", methods=["POST"])
+@auth_bp.route("/api/auth/register", methods=["POST"])
 def api_register():
     data = request.get_json() or {}
     if not data.get("username") or not data.get("email") or not data.get("password"):
@@ -23,7 +34,7 @@ def api_register():
     return jsonify({"message": "User registered successfully"}), 201
 
 # API-based login
-@auth_bp.route("/login", methods=["POST"])
+@auth_bp.route("/api/auth/login", methods=["POST"])
 def api_login():
     data = request.get_json() or {}
     user = User.query.filter_by(username=data.get("username")).first()
@@ -44,53 +55,43 @@ def login_form():
 def register_form():
     return render_template("auth/register.html")
 
-# HTML form: POST routes
+# HTML form: POST registration
 @auth_bp.route("/register/form", methods=["POST"])
 def register_form_post():
     username = request.form.get("username")
     email = request.form.get("email")
     password = request.form.get("password")
 
-    print("REGISTERING:", username, email, password)
-
     if not username or not email or not password:
-        flash("All fields are required.")
+        flash("All fields are required.", "warning")
         return redirect(url_for("auth_bp.register_form"))
 
     if User.query.filter((User.username == username) | (User.email == email)).first():
-        flash("User already exists.")
+        flash("User already exists.", "warning")
         return redirect(url_for("auth_bp.register_form"))
 
     user = User(username=username, email=email)
     user.set_password(password)
-    print("Hashed password:", user.password_hash)
-
     db.session.add(user)
     db.session.commit()
-    flash("Registration successful. Please login.")
+    flash("Registration successful. Please login.", "success")
     return redirect(url_for("auth_bp.login_form"))
 
+# HTML form: POST login
 @auth_bp.route("/login/form", methods=["POST"])
 def login_form_post():
     username = request.form.get("username")
     password = request.form.get("password")
 
-    print("LOGIN ATTEMPT:", username, password)
-
     user = User.query.filter_by(username=username).first()
 
-    if user:
-        print("User found:", user.username)
-        print("Password Hash in DB:", user.password_hash)
-        print("Password Match Result:", user.check_password(password))
-    else:
-        print("No user found for username:", username)
-
     if user and user.check_password(password):
-        flash("Login successful!")
         session["user_id"] = user.id
+        session["username"] = user.username
+        flash("Login successful!", "success")
         return redirect(url_for("dashboard_bp.dashboard_home"))
-    flash("Invalid credentials.")
+
+    flash("Invalid credentials.", "danger")
     return redirect(url_for("auth_bp.login_form"))
 
 # Logout route

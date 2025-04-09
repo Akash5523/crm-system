@@ -1,0 +1,100 @@
+2025-04-09 12:35:58,880 ERROR: Exception on /dashboard/ [GET] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\auth.py", line 17, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\dashboard.py", line 35, in dashboard_home
+    return render_template("dashboard.html",
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\a118sing\Documents\crm\templates\dashboard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\a118sing\Documents\crm\templates\base.html", line 29, in top-level template code
+    <li class="nav-item"><a class="nav-link" href="{{ url_for('tasks.tasks_home') }}">Tasks</a></li>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'tasks.tasks_home'. Did you mean 'tasks.list_tasks' instead?
+2025-04-09 12:37:17,933 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 12:40:53,005 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:06:56,941 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:06:58,460 ERROR: Exception on / [GET] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\app.py", line 72, in landing
+    return render_template("landing.html")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\a118sing\Documents\crm\templates\landing.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\a118sing\Documents\crm\templates\base.html", line 30, in top-level template code
+    <li class="nav-item"><a class="nav-link" href="{{ url_for('support.support_home') }}">Support</a></li>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'support.support_home'. Did you mean 'support.list_tickets' instead?
+2025-04-09 13:07:35,449 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:12:25,230 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:17:05,719 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:18:59,352 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:29:13,964 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:29:50,748 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:33:46,933 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:36:47,728 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:38:13,965 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:42:24,354 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:43:00,977 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:44:31,364 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]

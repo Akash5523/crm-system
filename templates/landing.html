@@ -4,7 +4,7 @@
 <header class="p-5 text-center bg-primary text-white">
   <h1>Welcome to Your CRM System</h1>
   <p class="lead">Manage leads, sales, tasks, and customer support—all in one platform.</p>
-  <a href="/dashboard" class="btn btn-light btn-lg mt-3">Go to Dashboard</a>
+  <a href="{{ url_for('auth_bp.login_form') }}" class="btn btn-light btn-lg mt-3">Log In</a>
 </header>
 
 <section id="features" class="container py-5">

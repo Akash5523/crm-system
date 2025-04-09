@@ -1,0 +1,120 @@
+2025-04-08 15:28:28,269 ERROR: Exception on /api/sales/edit/2 [GET] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\auth.py", line 17, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\sales.py", line 71, in edit_sale
+    return render_template('sales/edit.html', sale=sale, leads=leads)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\a118sing\Documents\crm\templates\sales\edit.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\a118sing\Documents\crm\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\templates\sales\edit.html", line 8, in block 'content'
+    {{ form.hidden_tag() }}
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2025-04-08 15:28:42,642 ERROR: Exception on /api/sales/edit/2 [GET] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\auth.py", line 17, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\sales.py", line 71, in edit_sale
+    return render_template('sales/edit.html', sale=sale, leads=leads)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\a118sing\Documents\crm\templates\sales\edit.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\a118sing\Documents\crm\templates\base.html", line 60, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\templates\sales\edit.html", line 8, in block 'content'
+    {{ form.hidden_tag() }}
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2025-04-08 15:29:44,652 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-08 15:39:52,787 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-08 15:41:50,489 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-08 15:53:54,760 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-08 16:02:41,103 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-08 16:09:28,193 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:03:54,925 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:30:05,902 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:39:07,386 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:39:46,119 ERROR: Exception on /api/sales/add [POST] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\auth.py", line 17, in decorated_function
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\routes\sales.py", line 72, in add_sale
+    app.logger.info(f"Submitted data: lead_id={lead_id}, value={value}, probability={probability}, "
+    ^^^^^^^^^^
+AttributeError: module 'flask.app' has no attribute 'logger'
+2025-04-09 11:46:00,260 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:46:32,146 INFO: Submitted data: lead_id=3, value=100.0, probability=50.0, progress_to_won=100.0, expected_close_date=2025-05-31, expected_revenue=50.0 [in C:\Users\a118sing\Documents\crm\routes\sales.py:72]
+2025-04-09 11:46:32,146 INFO: Calculated expected_revenue=50.0 [in C:\Users\a118sing\Documents\crm\routes\sales.py:83]
+2025-04-09 11:55:55,045 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 11:57:00,606 INFO: Submitted data: lead_id=3, value=100.0, probability=50.0, progress_to_won=100.0, expected_close_date=2025-05-31, expected_revenue=50.0 [in C:\Users\a118sing\Documents\crm\routes\sales.py:72]
+2025-04-09 11:57:00,607 INFO: Calculated expected_revenue=50.0 [in C:\Users\a118sing\Documents\crm\routes\sales.py:83]
+2025-04-09 12:14:19,522 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:63]
+2025-04-09 12:35:48,040 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]

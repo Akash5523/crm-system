@@ -1,2 +1,84 @@
-2025-04-07 14:12:46,178 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:61]
-2025-04-07 14:43:59,585 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:61]
+2025-04-09 13:46:58,702 ERROR: Exception on / [GET] [in C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py:875]
+Traceback (most recent call last):
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\app.py", line 72, in landing
+    return render_template("landing.html")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\a118sing\Documents\crm\templates\landing.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\a118sing\Documents\crm\templates\base.html", line 16, in top-level template code
+    <a class="navbar-brand text-uppercase fw-bold tracking-wide text-white" href="{{ url_for('dashboard_bp.dashboard_home') if session.get('user_id') else url_for('landing.html') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\a118sing\Documents\crm\venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'landing.html'. Did you mean 'landing' instead?
+2025-04-09 13:48:49,297 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:50:05,698 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:50:28,505 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:53:23,524 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:58:28,007 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 13:59:14,598 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:00:36,418 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:07:51,863 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:08:58,637 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:09:49,939 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:10:56,228 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 14:11:17,652 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:03:38,923 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:08:31,498 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:09:08,721 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:09:30,940 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:20:23,217 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:27:27,458 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:27:45,849 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:28:17,499 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:29:00,784 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:29:13,333 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:29:43,655 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:32:30,485 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:32:48,337 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:33:15,874 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:34:35,466 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:34:53,774 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:35:05,803 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:35:20,978 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:35:37,936 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:38:52,552 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:39:40,768 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:40:05,093 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 15:40:30,672 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:07:19,519 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:17:56,817 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:18:07,941 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:21:50,308 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:22:07,274 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:28:45,638 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:29:03,421 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]
+2025-04-09 18:29:18,268 INFO: CRM startup [in C:\Users\a118sing\Documents\crm\app.py:62]

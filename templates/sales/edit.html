@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Edit Sale{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto p-6 bg-white shadow rounded-xl mt-10">
+    <h2 class="text-2xl font-bold mb-6">Edit Sale</h2>
+    <form method="POST" action="{{ url_for('sales.edit_sale', sale_id=sale.id) }}" class="space-y-4">
+        <div>
+            <label for="lead_id" class="block font-medium">Lead</label>
+            <select name="lead_id" id="lead_id" required class="w-full mt-1 p-2 border rounded">
+                {% for lead in leads %}
+                    <option value="{{ lead.id }}" {% if lead.id == sale.lead_id %}selected{% endif %}>
+                        {{ lead.company_name }} - {{ lead.contact_name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="value" class="block font-medium">Value (₹)</label>
+            <input type="number" step="0.01" name="value" id="value" value="{{ sale.value }}" required class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="probability" class="block font-medium">Probability (%)</label>
+            <input type="number" name="probability" id="probability" value="{{ sale.probability }}" min="0" max="100" required class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="expected_revenue" class="block font-medium">Expected Revenue (₹)</label>
+            <input type="number" step="0.01" name="expected_revenue" id="expected_revenue" value="{{ sale.expected_revenue }}" readonly class="w-full mt-1 p-2 bg-gray-100 border rounded">
+        </div>
+
+        <div>
+            <label for="expected_close_date" class="block font-medium">Expected Close Date</label>
+            <input type="date" name="expected_close_date" id="expected_close_date" value="{{ sale.expected_close_date }}" class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <div>
+            <label for="progress_to_won" class="block font-medium">Progress to Won (%)</label>
+            <input type="number" name="progress_to_won" id="progress_to_won" value="{{ sale.progress_to_won }}" min="0" max="100" class="w-full mt-1 p-2 border rounded">
+        </div>
+
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update Sale</button>
+    </form>
+</div>
+
+<script>
+    const valueInput = document.getElementById('value');
+    const probabilityInput = document.getElementById('probability');
+    const expectedRevenueInput = document.getElementById('expected_revenue');
+
+    function updateExpectedRevenue() {
+        const value = parseFloat(valueInput.value) || 0;
+        const probability = parseFloat(probabilityInput.value) || 0;
+        expectedRevenueInput.value = (value * (probability / 100)).toFixed(2);
+    }
+
+    valueInput.addEventListener('input', updateExpectedRevenue);
+    probabilityInput.addEventListener('input', updateExpectedRevenue);
+</script>
+{% endblock %}

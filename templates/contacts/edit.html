@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto px-4 py-6 max-w-lg">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6">Edit Contact</h2>
+  <form method="POST" action="{{ url_for('contacts.edit_contact', id=contact.id) }}" class="space-y-4 bg-white p-6 rounded shadow">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" name="name" value="{{ contact.name }}" class="mt-1 block w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Email</label>
+      <input type="email" name="email" value="{{ contact.email }}" class="mt-1 block w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Phone</label>
+      <input type="text" name="phone" value="{{ contact.phone }}" class="mt-1 block w-full px-3 py-2 border rounded focus:outline-none focus:ring focus:ring-blue-200">
+    </div>
+    <div class="flex justify-end">
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">Update Contact</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
